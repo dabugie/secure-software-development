@@ -1,0 +1,81 @@
+---
+import SuperCard from './SuperCard.astro';
+
+const infoCards = [
+	{
+		title: 'Conceptos generales de seguridad informática y ciberseguridad',
+		description:
+			'La seguridad informática y ciberseguridad abordan la protección de sistemas y datos. Firewalls, antivirus y cifrado forman una defensa robusta. La autenticación de dos factores, gestión de vulnerabilidades y políticas de seguridad refuerzan la seguridad, junto con actualizaciones y respaldos periódicos.',
+		href: 'concepts',
+	},
+	{
+		title: 'Bases teóricas de desarrollo de software seguro:',
+		description:
+			'El desarrollo seguro de software se apoya en principios como el menor privilegio y la validación de entrada para limitar riesgos. Las pruebas de seguridad integradas en el ciclo de vida, el enfoque seguro en el SDLC y el modelo de amenazas garantizan la construcción de software resistente desde la concepción hasta el mantenimiento. Estas bases teóricas son fundamentales para enfrentar los desafíos de seguridad en entornos digitales complejos.',
+		href: 'theoretical-bases',
+	},
+];
+---
+
+<section class='mb-8'>
+	<div class='mb-4'>
+		<h1
+			class='font-extrabold text-5xl md:text-6xl tracking-tight pt-4 pb-2 overflow-hidden'
+		>
+			<span
+				class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+			>
+				Desarrollo de Software Seguro
+			</span>
+		</h1>
+	</div>
+	<div>
+		<p class='mb-5 text-justify'>
+			El desarrollo de software seguro es una metodología proactiva que busca
+			identificar, mitigar y prevenir riesgos de seguridad en todas las etapas
+			del ciclo de vida del desarrollo de software. Se enfoca en principios como
+			el menor privilegio y la validación de entrada, implementando medidas
+			desde el diseño hasta el mantenimiento. La colaboración entre
+			desarrolladores y expertos en seguridad es esencial. Este enfoque no solo
+			protege la información, sino que también promueve la construcción de
+			software resistente y confiable frente a amenazas cibernéticas.
+		</p>
+
+		<h2></h2>
+
+		{
+			infoCards.map((card) => (
+				<div class='mb-8'>
+					<SuperCard
+						title={card.title}
+						body={card.description}
+						href={card.href}
+					/>
+				</div>
+			))
+		}
+
+		<p
+			class='font-extrabold text-3xl md:text-4xl tracking-tight pt-4 pb-2 overflow-hidden'
+		>
+			<span
+				class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+			>
+				Reflexión
+			</span>
+		</p>
+
+		<p class='my-8 text-justify'>
+			Enfocarse en la seguridad al desarrollar software no solo mantiene
+			nuestros sistemas a salvo, sino que también es como un superhéroe que
+			protege la privacidad de los usuarios. Cuando implementamos cosas como la
+			validación de entrada y una buena gestión de contraseñas desde el
+			principio, estamos construyendo una muralla impenetrable para los ataques
+			maliciosos y evitamos que los datos sensibles se vayan de fiesta sin
+			permiso. Este enfoque "prevención antes que cura" no solo evita dolores de
+			cabeza financieros y manchas en la reputación, sino que también da poder a
+			los usuarios para que controlen mejor su propia seguridad y privacidad en
+			este mundo digital tan loco.
+		</p>
+	</div>
+</section>

@@ -1,0 +1,20 @@
+---
+const { href, title, body } = Astro.props;
+---
+
+<li
+	class='bg-slate-50 dark:bg-slate-800 p-6 rounded-md shadow-md hover:cursor-pointer transition-all duration-150 hover:scale-105 list-none'
+>
+	<a href={href} class='no-underline'>
+		<h2
+			class='text-black dark:text-white text-2xl dark:font-extrabold font-bold mb-2'
+		>
+			<span
+				class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+			>
+				{title}
+			</span>
+		</h2>
+		<p class='text-gray-600 dark:text-gray-300 text-justify mt-4'>{body}</p>
+	</a>
+</li>

@@ -1,0 +1,53 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { developmentBases } from '../../lib/data';
+import { RenderHTML } from '../../components/RenderHTML';
+
+const { id } = Astro.params;
+
+const theoreticalBase = developmentBases.find((base) => base.id === id);
+---
+
+<PageLayout>
+	<Fragment slot='main'>
+		<div>
+			<a
+				href='/theoretical-bases'
+				class='flex items-center justify-center w-24 h-10 unset hover:bg-gray-200 dark:hover:text-black rounded-md transition-all duration-150 hover:scale-110'
+			>
+				<svg
+					class='w-5 h-5 rtl:rotate-180 mr-1'
+					xmlns='http://www.w3.org/2000/svg'
+					fill='none'
+					viewBox='0 0 24 24'
+					stroke-width='1.5'
+					stroke='currentColor'
+				>
+					<path
+						stroke-linecap='round'
+						stroke-linejoin='round'
+						d='M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18'></path>
+				</svg>
+				<span>Atras</span>
+			</a>
+
+			<h2
+				class='font-bold text-5xl md:text-6xl tracking-tight pt-4 pb-2 overflow-hidden mb-8'
+			>
+				{theoreticalBase?.title}
+			</h2>
+
+			<div
+				class='prose prose-p:text-black prose-p:dark:text-slate-300 max-w-none text-justify'
+			>
+				<p>{theoreticalBase?.information?.introduction}</p>
+			</div>
+
+			<div
+				class='prose prose-p:text-black prose-p:dark:text-slate-300 prose-p:text-justify prose-strong:text-black prose-strong:dark:text-white prose-strong:dark:font-extrabold max-w-none md:px-8'
+			>
+				<RenderHTML html={theoreticalBase?.information?.content} />
+			</div>
+		</div>
+	</Fragment>
+</PageLayout>

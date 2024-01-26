@@ -1,0 +1,46 @@
+---
+import { RenderHTML } from '../components/RenderHTML';
+import PageLayout from '../layouts/PageLayout.astro';
+import { affectations } from '../lib/data';
+---
+
+<PageLayout>
+	<Fragment slot='main'>
+		<div class='mb-4'>
+			<h1
+				class='font-bold text-3xl md:text-5xl tracking-tight pt-4 pb-2 overflow-hidden'
+			>
+				<span
+					class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+				>
+					Amenazas, riesgos y vulnerabilidades comunes que pueden afectar la
+					seguridad en el desarrollo de software.
+				</span>
+			</h1>
+
+			<section>
+                {
+                    affectations.map((affectation)=> (
+                    <h2
+				class='font-bold text-4xl md:text-5xl tracking-tight pt-4 pb-2 overflow-hidden mb-4'
+			>
+				{affectation?.title}
+			</h2>
+
+			<div
+				class='prose prose-p:text-black prose-p:dark:text-slate-300 max-w-none text-justify'
+			>
+				<p>{affectation?.description}</p>
+			</div>
+
+			<div
+				class='prose prose-p:text-black prose-p:dark:text-slate-300 prose-p:text-justify prose-strong:text-black prose-strong:dark:text-white prose-strong:dark:font-extrabold max-w-none md:px-8'
+			>
+				<RenderHTML html={affectation?.information?.content} />
+			</div>
+                    ))
+                }
+            </section>
+		</div>
+	</Fragment>
+</PageLayout>

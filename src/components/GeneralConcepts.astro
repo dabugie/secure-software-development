@@ -1,0 +1,30 @@
+---
+import Card from '../components/Card.astro';
+import { secutiryConcepts } from '../lib/data';
+---
+
+<section class='mb-8'>
+	<div class='mb-4'>
+		<h1
+			class='font-bold text-5xl md:text-6xl tracking-tight pt-4 pb-2 overflow-hidden'
+		>
+			<span
+				class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+			>
+				Conceptos generales de seguridad informática
+			</span>
+		</h1>
+	</div>
+
+	<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+		{
+			secutiryConcepts.map((concept) => (
+				<Card
+					title={concept.title}
+					body={concept.description}
+					href={'concepts/' + concept.id}
+				/>
+			))
+		}
+	</div>
+</section>

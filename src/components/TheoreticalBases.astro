@@ -1,0 +1,30 @@
+---
+import { developmentBases } from '../lib/data';
+import Card from '../components/Card.astro';
+---
+
+<section class='mb-8'>
+	<div class='mb-4'>
+		<h1
+			class='font-bold text-5xl md:text-6xl tracking-tight pt-4 pb-2 overflow-hidden'
+		>
+			<span
+				class='bg-gradient-to-br from-[#fb923c] via-[#f97316] to-[#ea580c] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent'
+			>
+				Bases teóricas de desarrollo de software seguro
+			</span>
+		</h1>
+	</div>
+
+	<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+		{
+			developmentBases.map((base) => (
+				<Card
+					title={base.title}
+					body={base.description}
+					href={'theoretical-bases/' + base.id}
+				/>
+			))
+		}
+	</div>
+</section>

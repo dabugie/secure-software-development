@@ -1,0 +1,42 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+import FontAwesome from './FontAwesome.astro';
+import ThemeScript from './ThemeScript.astro';
+import GoogleFont from './GoogleFont.astro';
+---
+
+<!DOCTYPE html>
+<html class='theme-sleek' lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width,initial-scale=1' />
+		<slot name='meta' />
+		<GoogleFont />
+		<ThemeScript />
+		<FontAwesome />
+	</head>
+	<body class='min-h-screen max-w-3xl mx-auto px-6 sm:px-8'>
+		<Header />
+
+		<main id='main'>
+			<slot name='main' />
+		</main>
+
+		<style>
+			body {
+				display: grid;
+				grid-template-areas:
+					'header'
+					'main'
+					'footer';
+				grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+				grid-template-columns: minmax(0, 1fr);
+			}
+			main {
+				grid-area: main;
+			}
+		</style>
+	</body>
+</html>

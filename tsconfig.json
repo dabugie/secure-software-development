@@ -1,0 +1,23 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "display": "theme/sleek",
+  "compilerOptions": {
+    "types": [
+      "astro/client"
+    ],
+    "baseUrl": "C:/Development/Projects/actividad-1-astro",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/components": [
+        "src/components/*"
+      ],
+      "@/lib": [
+        "src/lib/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
